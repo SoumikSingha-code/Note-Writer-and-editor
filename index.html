@@ -1,0 +1,199 @@
+<html>
+
+<head>
+    <title>Entry</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .blc {
+            width: 600px;
+            height: 300px;
+            background-color: hite;
+            font-size: 30px;
+            position: relative;
+            top: 0px;
+            right: 450px;
+            color: white;
+            text-align: left;
+
+        }
+
+        .move {
+            font-size: 30;
+            width: 2000px;
+            height: 200px;
+            color: white;
+            animation: m 5s infinite alternate;
+            position: relative;
+            top: -200px;
+            text-align: right;
+            background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff0066);
+            background-size: 800% 800%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+
+        }
+
+        input {
+            border: 1px solid black;
+            border-radius: 10px;
+            text-align: center;
+            width: 95%;
+            height: 40px;
+            transition: all 0.29s ease;
+        }
+
+        input:hover {
+            height: 50px;
+        }
+
+        @keyframes m {
+            0% {
+                transform: translateX(-43%);
+            }
+
+            40% {
+                transform: translateX(0%);
+            }
+
+
+            60% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(30%);
+            }
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+
+        .button {
+            color: black;
+            width: 100%;
+            height: auto;
+            text-align: center;
+
+        }
+
+
+
+        button {
+            width: 100px;
+            height: 50px;
+            transition: all 0.5s ease;
+            background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff0066);
+            background-size: 800% 800%;
+            animation: aurora 5s ease infinite;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: large;
+            border-radius: 20px;
+            border: none;
+        }
+
+        button:hover {
+            width: 120px;
+            height: 60px;
+        }
+
+        .p,
+        .u {
+            background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff0066);
+            background-size: 800% 800%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            animation: aurora 5s ease infinite;
+        }
+
+
+        @keyframes aurora {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="move">
+        <h1>Welcome To <b><i>NOTE++</i></b></h1><br><br><br><br><br><br><br>
+    </div>
+    <div class="blc">
+        <form>
+            <div class="u">
+                User Name :</div>
+            <input type="name" placeholder="Enter the user name here" id="user" required><br><br>
+            <div class="p"> Password:</div>
+            <input type="password" placeholder="Enter the password here" id="password" required><br>
+            <div style="text-align: center;" class="log">
+                <h3> New to this web? <br>Want to
+                    <a href="Loggin.html">login</a>
+                    ?
+                </h3>
+            </div>
+            <div class="button">
+                <button type="button" onclick="check()">Sign in</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function check() {
+            const user = document.getElementById("user").value;
+            const pass = document.getElementById("password").value;
+            if (user === "") {
+                alert("Please Enter the User Name!");
+            }
+            else {
+                if (pass === "") {
+                    alert("Please Enter the Password!");
+                }
+            }
+            const nm = localStorage.getItem("name");
+            const Pass = localStorage.getItem("pass");
+            if (nm === user) {
+
+                if (Pass === pass) {
+                    window.location.href = "Note++editor.html";
+                }
+                else {
+                    alert("Wrong Password!");
+                }
+            }
+            else {
+                alert("Wrong User Name!");
+            }
+        }
+    </script>
+</body>
+
+</html>

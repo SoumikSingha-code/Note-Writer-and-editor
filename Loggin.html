@@ -1,0 +1,147 @@
+<html>
+
+<head>
+    <title>Loggin</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .rec1 {
+            background-color: navy;
+            width: 300px;
+            height: 400px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 10px 10px grey;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .rec2 {
+            background-color: grey;
+            width: 100%;
+            height: 50px;
+            top: 20px;
+            position: absolute;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rec3 {
+            width: 200px;
+        }
+
+        .button {
+            background-color: grey;
+            color: white;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 45px;
+            position: relative;
+            top: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: rgb(202, 202, 202);
+            color: black
+        }
+
+        input {
+            width: 100%;
+            box-shadow: black;
+            border-radius: 4px;
+            border: none;
+            padding: 10px;
+            transition: all 01s ease;
+        }
+
+        input:hover {
+            height: 40px;
+        }
+
+        .Pass {
+            position: relative;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+
+        .toggle {
+            position: absolute;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rec1">
+        <div class="rec2">
+            <h1>LOGGIN</h1>
+        </div>
+        <div class="rec3">
+            <form>
+                User Name:<br><input type="text" placeholder="NAME" id="nm">
+                <br>
+                <br>
+                Password:<br>
+                <div class="Pass">
+
+                    <input id="pass" type="password" placeholder="PASSWORD">
+                    <span id="toggle" class="toggle" onclick="toggle()">🙂</span>
+                </div>
+
+                <br>
+                <button class="button" type="button" onclick="save()">Enter</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function toggle() {
+            const password = document.getElementById("pass");
+            const eye = document.getElementById("toggle");
+            if (password.type === "password") {
+                password.type = "text";
+                eye.textContent = "😊";
+            }
+            else {
+                password.type = "password";
+                eye.textContent = "🙂";
+            }
+        }
+
+        function save() {
+            const name = document.getElementById("nm").value;
+            const pass = document.getElementById("pass").value;
+            if (name === "") {
+                alert("Enter the user name!");
+                return;
+            }
+            if (pass === "") {
+                alert("Enter the Password!");
+                return;
+            }
+            localStorage.setItem("name", name);
+            localStorage.setItem("pass", pass);
+            window.location.href = "Note++editor.html";
+        }
+        document.addEventListener('copy', function (event) {
+            event.clipboardData.setData('text/plain', 'UNABLE TO COPY');
+            event.preventDefault();
+        })
+    </script>
+</body>
+
+</html>
