@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Note++ Writer and Editor</title>
+    <title>Note++ Writter and Editor</title>
     <style>
         body {
             background-image: url("bg.jpg");
@@ -28,7 +28,7 @@
             padding: 10px 10px 10px;
             animation: b 1s ease-in-out forwards;
             background-color: none;
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(100px);
         }
 
         @keyframes b {
@@ -53,6 +53,7 @@
             transition: 0.3s ease;
             color: white;
             cursor: pointer;
+            font-size: 17px;
         }
 
         input:hover {
@@ -177,13 +178,15 @@
         }
         function check() {
             const user = document.getElementById("user").value;
-            const pass = document.getElementById("password").value;
+            const pass = document.getElementById("pass").value;
             if (user === "") {
                 alert("Please Enter the User Name!");
+                return;
             }
             else {
                 if (pass === "") {
                     alert("Please Enter the Password!");
+                    return;
                 }
             }
             const nm = localStorage.getItem("name");
