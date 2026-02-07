@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Entry</title>
+    <title>Note++ Writer and Editor</title>
     <style>
         body {
             background-image: url("bg.jpg");
@@ -112,11 +112,36 @@
             font-size: 20px;
             transition: all 0.3s ease;
         }
+
+        .marqee-scroll {
+            background: transparent;
+            backdrop-filter: blur("40px");
+            color: antiquewhite;
+            font-size: 16px;
+            height: 22px;
+            line-height: 22px;
+            font-weight: bold;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        span {
+            position: relative;
+            left: 265px;
+            top: -39px;
+        }
     </style>
 
 </head>
 
 <body>
+    <div class="marqee-scroll">
+        <marquee behavior="scroll" directon="right" scroll-amount="7">
+            Page made by SOUMIK SINGHA MAHAPATRA. To design your web page contact on 7846897565 (or) 9437514974
+        </marquee>
+    </div>
     <div class="rec7">
         <p class="W">WELCOME BACK</p>
         <br>
@@ -125,8 +150,9 @@
         </div><br><input type="name" placeholder="Enter your user Id" text-align="center" id="user"><br>
         <div class="p">
             Password :
+            <br><input type="password" placeholder="Enter your Password" style="text-align:center" id="pass">
+            <span id="toggle" class="toggle" onclick="toggle()">🙂</span>
         </div>
-        <br><input type="password" placeholder="Enter your Password" text-align="center" id="password">
         <h4> New to this website? Create an account or New here?
             <a href="Loggin.html"><b> Sign up</b></a>
         </h4>
@@ -137,6 +163,18 @@
 
     </div>
     <script>
+        function toggle() {
+            const password = document.getElementById("pass");
+            const eye = document.getElementById("toggle");
+            if (password.type === "password") {
+                password.type = "text";
+                eye.textContent = "😊";
+            }
+            else {
+                password.type = "password";
+                eye.textContent = "🙂";
+            }
+        }
         function check() {
             const user = document.getElementById("user").value;
             const pass = document.getElementById("password").value;
